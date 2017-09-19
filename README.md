@@ -48,7 +48,7 @@ Please contact us if you are interested in contributing to any of the above.
 Support is not available through us nor Mutable Instruments nor the Mutable Instruments forums, please respect their wishes to not want to answer any questions regarding DIY builds and leave them to continue doing what they do best.
 
 ## Licence (cc-by-sa-3.0)
-Original CAD file, PCB & Schematic and original design elements provided by [Mutable Instruments][3] under creative commons CC-BY-SA-3.0 license. Our design contributions are provided by [Magpie Modular][4] under Creative Commons CC-BY-SA-3.0 license.
+Original CAD file, PCB & Schematic and original design elements provided by [Mutable Instruments][3] under creative commons CC-BY-SA-3.0 license. This microBraids (uBraids) project is provided by [Magpie Modular][4] under Creative Commons CC-BY-SA-3.0 license.
 
 
 [0]: http://github.com/MagpieModular/microBraids/blob/master/Build%20Guide/MicroBraids%20Build.pdf
