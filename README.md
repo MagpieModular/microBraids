@@ -25,7 +25,7 @@ STM32 processor.
 For flashing the main Braids firmware to this module - the microBraids firmware, using the [Mutable Instruments Vagrant Dev Environment][1] will provide the needed compilers, code and tools in a virtual machine to make the process easier. 
 The μBraids can be programmed with any standard Braids firmware without modification, using the same process as the original Braids module.
 
-For the display code - You will then need to install the [Arduino app][2] in order to programm the ATMEGA328P running the display. 
+For the display code - You will then need to install the [Arduino app][2] in order to program the ATMEGA328P running the display. 
 The `elapsedMillis`, `Adafruit SSD 1306` and `Adafruit GFX Library` are included in this repository folder, so they do not need to be installed using the Arduino Library Manager.
 Load the Ardunio sketch for the display code in the [Display Code/mbraidsv3](Display Code/mbraidsv3) folder, and use the program button in the Ardunio IDE to upload the code.
 Make sure you set the board type in the Ardunio IDE `Ardunio Genuino/Uno`, and ensure the correct port and programmer type is set, based on the AVR/ISP programmer you have connected to the ISP port on microBraids.
@@ -52,7 +52,7 @@ This is Open Source Project and could benefit from the following:
 - OLED reprogramming to show the full name of the parameter and what the timbre & color adjust. There may be space for a 128x64 OLED so there is potential for this to display for more information than the regular 14 segment LEDs braids has.
 - Contributions to our GitHub repositories in the form of PRs and/or filing issues if you
   find them.
-- Muffwiggler project thread maintainence, feel free to chime in and support your fellow
+- Muffwiggler project thread maintenance, feel free to chime in and support your fellow
   builders!
 
 Please contact us if you are interested in contributing to any of the above.
