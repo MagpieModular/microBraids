@@ -3,17 +3,17 @@
 
 Braids is an amazing module. Half the space, twice as amazing.
 
-> Note: Since the layout is so cramped the small PCB does not have all component designations marked as it would be mostly useless and rip your hair out. Instead, you can use this [easy to navigate build guide][0] or the diptrace file.
-
 ## Requirements
 This is an advanced build. After you follow the basic build guide and solder in the 0603 & TSSOP components and you will have to flash two microprocessors with two different programmers... It is not insurmountable but if you haven't done a microprocessor based build I would recommend something simpler to start.
 
-Nothing has been altered component-wise from v5 of Braids. Some ICs were shrunk down to TSSOP packages in order to create more space. This means that any future firmware upgrade on Braids or alternate firmware such as Tim Churches Bees in the Trees should load and work fine.
+Nothing has been altered component-wise from v5 of Braids. Some ICs were shrunk down to TSSOP packages in order to create more space. This means that any future firmware upgrade on Braids or alternate firmware such as Tim Churches' Bees in the Trees should load and work fine.
 
 ### Hardware needed
 
-- FTDI Programmer
-- AVR Programmer
+- ISP/AVR Programmer (for the ATMEGA328P display code)
+- FTDI or JTAG (ST-Linkv2) Programmer (for the main STM32 processor)
+  Note: for JTAG/ST-Linkv2, you will need a JTAG to SWD 10-pin adaptor.
+  The following are examples, not endorsements - [Adaptor][5], [Cable][6]
 
 ### Software needed
 
@@ -24,11 +24,13 @@ You will then need to install the [Arduino app][2] to upload the Display Code. T
 > Note: If you don't use the library included in this repo you will need to specify screen size in the header file (`Adafruit_SSD1306.h`) of the `Adafruit SSD 1306` library. This is a 128x32 SPI OLED.
 
 ## Please be advised
-This board is 0603 SMT components and thus not suitable for beginners. If you would like a good introduction to the sDIY world we recommend a simpler through-hole kit such as the Mikrophonie and working up in complexity from there.
 
-If you are interested in a simple SMT build in which to start we recommend something analog with a small part count, such as a Links or Shades. Working up from there Branches is a nice easy introduction into microprocessors and then I find all the others about the same.
+This board is 0603 SMT components and thus not suitable for beginners. If you would like a good introduction to the sDIY world, we recommend building a simpler through-hole kit such as the Mikrophonie and then working up in complexity from there.
+There are a number of simpler SMD-based modules, and SMD practice boards can be had cheaply to practice your surface-mount soldering before attempting uBraids.
 
-Before purchasing be ensure you are comfortable with setting up the development environment needed to compile the firmware and flash these units and understand the basic flow of working on microprocessor based builds. That said: The point of providing these boards is that learning to work SMT is not an insurmountable task and with proper research, practice and steady hands you might actually prefer it. (or not)
+Since the layout has been altered to shrink the board down, the smaller PCB does not have all component designations marked. Instead, you can use the component overlay in the [build guide][0], or open the board layout in Diptrace to view component placements whilst building.
+
+Before purchasing a PCB, please ensure you are comfortable with setting up the development environment needed to compile the firmware and flash these units, and understand the basic flow of working on microprocessor based builds. That said: The point of providing these boards is that learning to work SMT is not an insurmountable task and with proper research, practice and steady hands you might actually prefer it. (or not)
 
 We are a small 2 person shop and unfortunately do not have time to be able to offer any build support or answer any questions about or troubleshoot your DIY builds.
 
@@ -37,8 +39,10 @@ We are a small 2 person shop and unfortunately do not have time to be able to of
 This is Open Source Project and could benefit from the following:
 
 - OLED reprogramming to show the full name of the parameter and what the timbre & color adjust. There may be space for a 128x64 OLED so there is potential for this to display for more information than the regular 14 segment LEDs braids has.
-- Someone to maintain and update the code repository.
-- Muffwiggler project thread maintainence 
+- Contributions to our GitHub repositories in the form of PRs and/or filing issues if you
+  find them.
+- Muffwiggler project thread maintainence, feel free to chime in and support your fellow
+  builders!
 
 Please contact us if you are interested in contributing to any of the above.
 
@@ -58,5 +62,6 @@ This microBraids (uBraids) project is provided by [Magpie Modular][4] under Crea
 [2]: http://www.arduino.cc/en/Main/Software
 [3]: http://mutable-instruments.net
 [4]: http://magpie-modular.myshopify.com
-
+[5]: https://www.adafruit.com/product/2094
+[6]: https://www.adafruit.com/product/1675
  
