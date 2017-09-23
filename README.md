@@ -1,7 +1,7 @@
 # microBraids
 μBraids in 8HP.
 
-Braids is an amazing module. Half the space, twice as amazing.
+Braids is an amazing module. μBraids is half the space, so twice as amazing.
 
 ## Requirements
 This is an advanced build. After you follow the basic build guide and solder in the 0603 & TSSOP components and you will have to flash two microprocessors with two different programmers... It is not insurmountable but if you haven't done a microprocessor based build I would recommend something simpler to start.
