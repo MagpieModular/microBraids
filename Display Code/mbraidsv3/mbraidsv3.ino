@@ -1,3 +1,6 @@
+
+/* Board Arduino/Genuino UNO */
+
 #include <elapsedMillis.h>
 
 #include <SPI.h>
