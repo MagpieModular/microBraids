@@ -12,8 +12,13 @@ Nothing has been altered component-wise from v5 of Braids. Some ICs were shrunk 
 
 - ISP/AVR Programmer (for the ATMEGA328P display code)
 - FTDI or JTAG (ST-Linkv2) Programmer (for the main STM32 processor)
-  Note: for JTAG/ST-Linkv2, you will need a JTAG to SWD 10-pin adaptor.
-  The following are examples, not endorsements - [Adaptor][5], [Cable][6]
+  
+Note: for JTAG/ST-Linkv2, you will need a JTAG to SWD 10-pin adaptor.
+The following are examples of the adaptors needed to use the mini-JTAG (SWD) connector on
+the v2 board, not endorsements - [Adaptor][5], [Cable][6]
+
+Further note: If you have a v1 board, you will only be able to use FTDI to program the
+STM32 processor.
 
 ### Software needed
 
