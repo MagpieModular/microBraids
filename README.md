@@ -22,11 +22,17 @@ STM32 processor.
 
 ### Software needed
 
-I recommend using and installing the [Mutable Instruments Vagrant Dev Environment][1] to Flash the Braids aspect of this with any firmware you like. Flash as you would any normal DIY Mutable Instrument build.
+For flashing the main Braids firmware to this module - the microBraids firmware, using the [Mutable Instruments Vagrant Dev Environment][1] will provide the needed compilers, code and tools in a virtual machine to make the process easier. 
+The μBraids can be programmed with any standard Braids firmware without modification, using the same process as the original Braids module.
 
-You will then need to install the [Arduino app][2] to upload the Display Code. The `elapsedMillis`, `Adafruit SSD 1306` and `Adafruit GFX Library` are included in the Sketch folder so you can just upload it with your FTDI Programmer.
+For the display code - You will then need to install the [Arduino app][2] in order to programm the ATMEGA328P running the display. 
+The `elapsedMillis`, `Adafruit SSD 1306` and `Adafruit GFX Library` are included in this repository folder, so they do not need to be installed using the Arduino Library Manager.
+Load the Ardunio sketch for the display code in the [Display Code/mbraidsv3](Display Code/mbraidsv3) folder, and use the program button in the Ardunio IDE to upload the code.
+Make sure you set the board type in the Ardunio IDE `Ardunio Genuino/Uno`, and ensure the correct port and programmer type is set, based on the AVR/ISP programmer you have connected to the ISP port on microBraids.
 
-> Note: If you don't use the library included in this repo you will need to specify screen size in the header file (`Adafruit_SSD1306.h`) of the `Adafruit SSD 1306` library. This is a 128x32 SPI OLED.
+> Note: The microBraids is designed for use with an 128x32 SPI OLED. If you manually
+> install or update the libraries needed by this project, please ensure that the SSD1306
+> library is correctly configured for a display size of 128x32.
 
 ## Please be advised
 
