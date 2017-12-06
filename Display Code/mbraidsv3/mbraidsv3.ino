@@ -1,6 +1,3 @@
-
-/* Board Arduino/Genuino UNO */
-
 #include <elapsedMillis.h>
 
 #include <SPI.h>
@@ -17,6 +14,7 @@ int muxCount;
 Adafruit_SSD1306 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
 word character[4];
 int histTotal;
+uint16_t digit;
 int readIndex[4] = {4, 5, 2, 3};
 elapsedMillis sinceDisplay;
 elapsedMillis sinceMux;
@@ -59,38 +57,47 @@ void testOutput()
   display.clearDisplay();
   for (int n = 0; n < 4; n++)
   {
+    digit = 32 * n;
     for (int q = 0; q < 14; q++)
     {
       if (bitRead(character[n], q))
       {
         if (q == 0)
-          display.drawLine(0 + 32 * n, 0, 28 + 32 * n, 0, WHITE);
+          display.fillRoundRect(4 + digit, 1, 23, 3,1, WHITE);
         if (q == 1)
-          display.drawLine(28 + 32 * n, 0, 28 + 32 * n, 15, WHITE);
+          display.fillRoundRect(27 + digit, 4, 3 , 11,1, WHITE);
         if (q == 2)
-          display.drawLine(28 + 32 * n, 16, 28 + 32 * n, 31, WHITE);
+          display.fillRoundRect(27 + digit, 17, 3 , 11,1, WHITE);
         if (q == 3)
-          display.drawLine(0 + 32 * n, 31, 28 + 32 * n, 31, WHITE);
+          display.fillRoundRect(4 + digit, 28, 23 , 3,1, WHITE);
         if (q == 4)
-          display.drawLine(0 + 32 * n, 16, 0 + 32 * n, 31, WHITE);
+          display.fillRoundRect(2 + digit, 17, 3 , 11,1, WHITE);
         if (q == 5)
-          display.drawLine(0 + 32 * n, 0, 0 + 32 * n, 15, WHITE);
-        if (q == 6)
-          display.drawLine(0 + 32 * n, 0, 14 + 32 * n, 15, WHITE);
+          display.fillRoundRect(2 + digit, 4, 3, 11,1, WHITE);
+        if (q == 6){
+          display.drawLine(5 + digit, 5, 14 + digit, 14, WHITE);
+          display.drawLine(6 + digit, 5, 14 + digit, 13, WHITE);
+          display.drawLine(5 + digit, 6, 13 + digit, 14, WHITE);}
         if (q == 7)
-          display.drawLine(14 + 32 * n, 0, 14 + 32 * n, 15, WHITE);
-        if (q == 8)
-          display.drawLine(14 + 32 * n, 15, 28 + 32 * n, 0, WHITE);
+          display.fillRoundRect(15 + digit, 5, 3 , 10,1, WHITE);
+        if (q == 8){
+          display.drawLine(17 + digit, 14, 26 + digit, 5, WHITE);
+          display.drawLine(18 + digit, 14, 26 + digit, 6, WHITE);
+          display.drawLine(17 + digit, 13, 25 + digit, 5, WHITE);}
         if (q == 9)
-          display.drawLine(14 + 32 * n, 15, 28 + 32 * n, 15, WHITE);
-        if (q == 10)
-          display.drawLine(14 + 32 * n, 15, 28 + 32 * n, 31, WHITE);
+          display.fillRoundRect(16 + digit, 15, 10 , 3,1, WHITE);
+         if (q == 12){
+          display.drawLine(5 + digit, 27, 14 + digit, 17, WHITE);     
+          display.drawLine(5 + digit, 26, 13 + digit, 17, WHITE);   
+          display.drawLine(6 + digit, 27, 14 + digit, 18, WHITE);   }
         if (q == 11)
-          display.drawLine(14 + 32 * n, 16, 14 + 32 * n, 31, WHITE);
-        if (q == 12)
-          display.drawLine(14 + 32 * n, 15, 0 + 32 * n, 31, WHITE);
-        if (q == 13)
-          display.drawLine(0 + 32 * n, 15, 14 + 32 * n, 15, WHITE);
+          display.fillRoundRect(15 + digit, 17, 3 , 10,1, WHITE);
+        if (q == 10){
+          display.drawLine(17 + digit, 17, 27 + digit, 27, WHITE);
+          display.drawLine(18 + digit, 17, 27 + digit, 26, WHITE);
+          display.drawLine(17 + digit, 18, 26 + digit, 27, WHITE);}
+         if (q == 13)
+          display.fillRoundRect(5 + digit, 15, 9 , 3,1, WHITE);        
       }
     }
   }
