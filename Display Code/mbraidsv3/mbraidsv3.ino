@@ -1,5 +1,5 @@
 #include <elapsedMillis.h>
-
+#include <PinChangeInterrupt.h>
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -22,12 +22,17 @@ elapsedMillis sinceMux;
 #error("Height incorrect, please fix Adafruit_SSD1306.h!");
 #endif
 
+constexpr int NUM_SEGMENTS = 14;
 void setup()   {
   //char select inputs
-  pinMode(2, INPUT);
-  pinMode(3, INPUT);
-  pinMode(4, INPUT);
-  pinMode(5, INPUT);
+  pinMode(readIndex[0], INPUT);
+  attachPCINT(digitalPinToPCINT(readIndex[0]), dispcharISR0, RISING);
+  pinMode(readIndex[1], INPUT);
+  attachPCINT(digitalPinToPCINT(readIndex[1]), dispcharISR1, RISING);
+  pinMode(readIndex[2], INPUT);
+  attachPCINT(digitalPinToPCINT(readIndex[2]), dispcharISR2, RISING);
+  pinMode(readIndex[3], INPUT);
+  attachPCINT(digitalPinToPCINT(readIndex[3]), dispcharISR3, RISING);
   //
   pinMode(A0, INPUT); //mux in
   pinMode(A1, OUTPUT); //s0
@@ -43,7 +48,6 @@ void setup()   {
 
 void loop()
 {
-  multiplexer();
   if (sinceDisplay > 20)
   {
     testOutput();
@@ -149,4 +153,24 @@ void multiplexer()
   digitalWrite(A4, muxCount & 0b1000);
   inputDetect();
   muxCount = (muxCount + 1) % 14;
+}
+
+inline void dispcharISR(int selected) {
+  for (uint8_t mux_count = 0; mux_count < NUM_SEGMENTS; mux_count++) {
+    PORTC = mux_count << 1;
+    bitWrite(character[selected], mux_count, PINC & 0b1);
+  }
+}
+
+void dispcharISR0(){
+  dispcharISR(0);
+}
+void dispcharISR1(){
+  dispcharISR(1);
+}
+void dispcharISR2(){
+  dispcharISR(2);
+}
+void dispcharISR3(){
+  dispcharISR(3);
 }
